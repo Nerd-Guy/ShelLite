@@ -1,4 +1,4 @@
-package main
+package shellite
 
 type Command struct {
 	Name string
