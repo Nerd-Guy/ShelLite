@@ -56,9 +56,7 @@ func InitCommands() {
 		FileTable.AddColumn("Date Modified")
 		for _, f := range files {
 			var SizeContent string
-			fmt.Print("Hello?")
 			if f.IsDir() {
-				fmt.Println(f.Name(), "is a directory")
 				SizeContent = "<DIR>"
 			} else {
 				SizeContent = fmt.Sprintf("%d", f.Size())
