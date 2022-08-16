@@ -1,4 +1,4 @@
-package shellite
+package main
 
 import (
 	"errors"
@@ -55,7 +55,15 @@ func InitCommands() {
 		FileTable.AddColumn("Size (bytes)")
 		FileTable.AddColumn("Date Modified")
 		for _, f := range files {
-			FileTable.AddRow(f.Name(), fmt.Sprint(f.Size()), fmt.Sprint(f.ModTime().String()))
+			var SizeContent string
+			fmt.Print("Hello?")
+			if f.IsDir() {
+				fmt.Println(f.Name(), "is a directory")
+				SizeContent = "<DIR>"
+			} else {
+				SizeContent = fmt.Sprintf("%d", f.Size())
+			}
+			FileTable.AddRow(f.Name(), SizeContent, fmt.Sprint(f.ModTime().String()))
 		}
 		FileTable.Print()
 		return nil
